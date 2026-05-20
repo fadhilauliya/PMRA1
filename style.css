@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: black;
+}
+
+/* CANVAS */
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* SLIDE tetap center */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(1.1);
+  transition: all 1.5s ease;
+}
+
+/* WRAPPER */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FOTO (INI YANG NGATUR UKURAN & POSISI) */
+.slide-img {
+  width: 60vw;          /* ukuran sedang */
+  max-width: 500px;     /* biar gak kegedean di laptop */
+  height: auto;
+
+  border-radius: 20px;
+  object-fit: cover;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+
+  transition: transform 1.5s ease;
+}
+
+/* efek saat aktif */
+.slide.active .slide-img {
+  transform: scale(1);
+}
+
+/* efek saat non-aktif */
+.slide .slide-img {
+  transform: scale(1.08);
+}
+
+/* TEXT */
+.slide h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  max-width: 80%;
+}
+/* ACTIVE */
+.slide.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* TEXT */
+.slide h1 {
+  font-size: 2.8rem;
+  max-width: 80%;
+  line-height: 1.4;
+  animation: fadeText 2s ease;
+}
+
+.content p {
+  margin-top: 10px;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* TEXT ANIMATION */
+@keyframes fadeText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
